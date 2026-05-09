@@ -26,7 +26,7 @@ function Weather() {
 
   // 🧠 Conditional rendering logic
   if (loading) return <p>🔄 Loading Weather...</p>;
-  if (error) return <p style={{ color: "red" }}>❌ {error}</p>;
+  if (error) return <p className="error">❌ {error}</p>;
 
     return (
     <div className="weather-card">

@@ -46,3 +46,8 @@
   margin: 25px 0;
   color: #8b1e1e;
 }
+.error{
+    text-align: center;
+    margin: 25px 0;
+    color: red; 
+}
