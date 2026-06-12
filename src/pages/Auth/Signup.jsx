@@ -4,17 +4,19 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import * as formik from "formik";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
+
 import "../../css/Auth.css";
 import logo from "../../assets/visitjordan logo.png";
+import api from "../../api/api";
 
 function Signup() {
   const { Formik } = formik;
+  const navigate = useNavigate();
 
   const schema = yup.object().shape({
     firstName: yup.string().required("First name is required"),
     lastName: yup.string().required("Last name is required"),
-    username: yup.string().required("Username is required"),
-    phone: yup.string().required("Phone number is required"),
     email: yup.string().email("Invalid email").required("Email is required"),
     password: yup.string().min(6, "At least 6 characters").required("Password is required"),
     confirmPassword: yup
@@ -24,21 +26,35 @@ function Signup() {
     isProvider: yup.boolean(),
   });
 
+  const handleSignup = async (values) => {
+    try {
+      await api.post("/auth/register", {
+        first_name: values.firstName,
+        last_name: values.lastName,
+        email: values.email,
+        password: values.password,
+        role: values.isProvider ? "Provider" : "User",
+      });
+
+      alert("Account created successfully");
+      navigate("/login");
+    } catch (error) {
+      alert(error.response?.data?.error || "Signup failed");
+    }
+  };
+
   return (
-    <div>
-      <div className="auth-page">
+    <div className="auth-page">
       <div className="auth-card signup-card">
         <img src={logo} alt="Visit Jordan" className="auth-logo" />
         <h2>Create Account</h2>
 
         <Formik
           validationSchema={schema}
-          onSubmit={console.log}
+          onSubmit={handleSignup}
           initialValues={{
             firstName: "",
             lastName: "",
-            username: "",
-            phone: "",
             email: "",
             password: "",
             confirmPassword: "",
@@ -76,34 +92,6 @@ function Signup() {
                   </Form.Control.Feedback>
                 </Form.Group>
               </Row>
-
-              <Form.Group className="mb-3">
-                <Form.Control
-                  type="text"
-                  placeholder="Username"
-                  name="username"
-                  value={values.username}
-                  onChange={handleChange}
-                  isInvalid={touched.username && !!errors.username}
-                />
-                <Form.Control.Feedback type="invalid">
-                  {errors.username}
-                </Form.Control.Feedback>
-              </Form.Group>
-
-              <Form.Group className="mb-3">
-                <Form.Control
-                  type="tel"
-                  placeholder="Phone number"
-                  name="phone"
-                  value={values.phone}
-                  onChange={handleChange}
-                  isInvalid={touched.phone && !!errors.phone}
-                />
-                <Form.Control.Feedback type="invalid">
-                  {errors.phone}
-                </Form.Control.Feedback>
-              </Form.Group>
 
               <Form.Group className="mb-3">
                 <Form.Control
@@ -165,8 +153,6 @@ function Signup() {
         </Formik>
       </div>
     </div>
-    </div>
-    
   );
 }
 

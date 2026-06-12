@@ -1,18 +1,41 @@
-import React from 'react'
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import * as formik from "formik";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
+
 import "../../css/Auth.css";
 import logo from "../../assets/visitjordan logo.png";
+import api from "../../api/api";
+import { useAuth } from "../../context/AuthContext";
 
 function Login() {
   const { Formik } = formik;
+  const navigate = useNavigate();
+  const { login } = useAuth();
 
   const schema = yup.object().shape({
     email: yup.string().email("Invalid email").required("Email is required"),
     password: yup.string().required("Password is required"),
   });
+
+  const handleLogin = async (values) => {
+    try {
+      const res = await api.post("/auth/login", values);
+
+      login(res.data.user);
+
+      if (res.data.user.role === "Admin") {
+        navigate("/admin/dashboard");
+      } else if (res.data.user.role === "Provider") {
+        navigate("/provider/dashboard");
+      } else {
+        navigate("/");
+      }
+    } catch (error) {
+      alert(error.response?.data?.message || "Login failed");
+    }
+  };
 
   return (
     <div className="auth-page">
@@ -22,7 +45,7 @@ function Login() {
 
         <Formik
           validationSchema={schema}
-          onSubmit={console.log}
+          onSubmit={handleLogin}
           initialValues={{
             email: "",
             password: "",
