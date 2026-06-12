@@ -3,12 +3,13 @@ import Form from "react-bootstrap/Form";
 import * as formik from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import "../../css/Auth.css";
 import logo from "../../assets/visitjordan logo.png";
 import api from "../../api/api";
 import { useAuth } from "../../context/AuthContext";
 
+import AdminLayout from "../../components/admin/AdminLayout";
 function Login() {
   const { Formik } = formik;
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ function Login() {
       login(res.data.user);
 
       if (res.data.user.role === "Admin") {
-        navigate("/admin/dashboard");
+        navigate("/admin");
       } else if (res.data.user.role === "Provider") {
         navigate("/provider/dashboard");
       } else {
@@ -84,6 +85,10 @@ function Login() {
               <Button className="auth-btn" type="submit">
                 Login
               </Button>
+              <div className="auth-switch">
+  Don't have an account?{" "}
+  <Link to="/signup">Sign up</Link>
+</div>
             </Form>
           )}
         </Formik>

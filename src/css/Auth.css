@@ -27,14 +27,14 @@
 
 .auth-btn {
   width: 100%;
-  background-color: #a81919 !important;
+  background-color: #7f1d1d !important;
   border: none !important;
   border-radius: 10px;
   font-weight: bold;
 }
 
 .auth-btn:hover {
-  background-color: #861414 !important;
+  background-color: #7f1d1d !important;
 }
 .auth-logo {
   width: 90px;
