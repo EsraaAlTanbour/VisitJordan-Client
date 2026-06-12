@@ -1,54 +1,51 @@
 import "../css/Profile.css";
 import logo from "../assets/visitjordan logo.png";
+import { useAuth } from "../context/AuthContext";
 
 const Profile = () => {
-  return (
-    <div className="profile-page">
-      <div className="profile-card">
-        <div className="profile-header">
-           <img  src={logo} alt="Visit Jordan" className="pro-logo" />
-          <div>
-            <h2>Esraa Tanbour</h2>
-            <p>@esraa</p>
-          </div>
-        </div>
+const { user } = useAuth();
 
-        <div className="profile-info " >
-          <div>
-            <label>First Name</label>
-            <p>Esraa</p>
-          </div>
+if (!user) {
+return <h2>Please login first</h2>;
+}
 
-          <div>
-            <label>Last Name</label>
-            <p>Tanbour</p>
-          </div>
+return ( <div className="profile-page"> <div className="profile-card"> <div className="profile-header"> <img src={logo} alt="Visit Jordan" className="pro-logo" />
 
-          <div>
-            <label>Email</label>
-            <p>esraa@example.com</p>
-          </div>
+      <div>
+        <h2>
+          {user.first_name} {user.last_name}
+        </h2>
 
-          <div>
-            <label>Phone Number</label>
-            <p>0790000000</p>
-          </div>
-
-          <div>
-            <label>Username</label>
-            <p>esraa</p>
-          </div>
-
-          <div>
-            <label>Account Type</label>
-            <p>Experience Provider</p>
-          </div>
-        </div>
-
-        
+        <p>{user.email}</p>
       </div>
     </div>
-  );
+
+    <div className="profile-info">
+      <div>
+        <label>First Name</label>
+        <p>{user.first_name}</p>
+      </div>
+
+      <div>
+        <label>Last Name</label>
+        <p>{user.last_name}</p>
+      </div>
+
+      <div>
+        <label>Email</label>
+        <p>{user.email}</p>
+      </div>
+
+      <div>
+        <label>Account Type</label>
+        <p>{user.role}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+);
 };
 
 export default Profile;
