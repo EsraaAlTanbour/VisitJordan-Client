@@ -1,0 +1,57 @@
+.admin-sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background-color: #8b1c1c;
+  color: white;
+  padding: 25px 18px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-logo {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.admin-logo img {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.admin-logo h3 {
+  color: white;
+  margin: 0;
+  font-size: 28px;
+}
+
+.admin-sidebar button {
+  display: block;
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 15px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: transparent;
+  color: white;
+
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.admin-sidebar button:hover,
+.admin-sidebar button.active {
+  background-color: #f5efe4;
+  color: #8b1c1c;
+}
+
+.profile-btn {
+  margin-top: auto;
+}
+

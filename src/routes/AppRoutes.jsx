@@ -11,13 +11,11 @@ import Signup from "../pages/Auth/Signup";
 import Profile from "../pages/Profile";
 import LikedExperiences from "../pages/LikedExperiences";
 
-import Dashboard from "../pages/Admin/Dashboard";
-import UsersManagement from "../pages/Admin/UsersManagement";
-import ContentManagement from "../pages/Admin/ContentManagement";
-
 import ProviderDashboard from "../pages/Provider/Dashboard";
 import ExperiencesTable from "../pages/Provider/ExperiencesTable";
 
+
+import AdminLayout from "../components/admin/AdminLayout";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -32,12 +30,10 @@ const AppRoutes = () => {
       <Route path="/profile" element={<Profile />} />
       <Route path="/liked-experiences" element={<LikedExperiences />} />
 
-      <Route path="/admin/dashboard" element={<Dashboard />} />
-      <Route path="/admin/users-management" element={<UsersManagement />} />
-      <Route path="/admin/content-management" element={<ContentManagement />} />
-
       <Route path="/provider/dashboard" element={<ProviderDashboard />} />
       <Route path="/provider/experiences-table" element={<ExperiencesTable />} />
+
+      <Route path="/admin" element={<AdminLayout />} />
     </Routes>
   );
 };

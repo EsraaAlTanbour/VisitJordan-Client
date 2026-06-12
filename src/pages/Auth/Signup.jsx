@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import * as formik from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import "../../css/Auth.css";
 import logo from "../../assets/visitjordan logo.png";
 import api from "../../api/api";
@@ -148,6 +148,11 @@ function Signup() {
               <Button className="auth-btn" type="submit">
                 Sign Up
               </Button>
+
+              <div className="auth-switch">
+                Already have an account?{" "}
+                <Link to="/login">Log in</Link>
+              </div>
             </Form>
           )}
         </Formik>
