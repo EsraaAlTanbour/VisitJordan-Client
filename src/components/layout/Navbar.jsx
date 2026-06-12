@@ -10,103 +10,126 @@ import { FaHeart, FaUserCircle } from "react-icons/fa";
 import "../../css/Navbar.css";
 import logo from "../../assets/visitjordan logo.png";
 
+import { useAuth } from "../../context/AuthContext";
+
 function Navbar() {
-  return (
-    <BootstrapNavbar expand="lg" className="custom-navbar">
-      <Container fluid className="navbar-container">
+const { user, logout } = useAuth();
 
-        {/* Logo */}
-        <BootstrapNavbar.Brand
-          as={Link}
-          to="/"
-          className="navbar-logo"
-        >
-          <img src={logo} alt="Visit Jordan Logo" />
-        </BootstrapNavbar.Brand>
+return ( <BootstrapNavbar expand="lg" className="custom-navbar"> <Container fluid className="navbar-container">
 
-        {/* Mobile Toggle */}
-        <BootstrapNavbar.Toggle aria-controls="main-navbar" />
+   <BootstrapNavbar.Brand
+      as={Link}
+      to="/"
+      className="navbar-logo"
+    >
+      <img src={logo} alt="Visit Jordan Logo" />
+    </BootstrapNavbar.Brand>
 
-        <BootstrapNavbar.Collapse id="main-navbar">
+    <BootstrapNavbar.Toggle aria-controls="main-navbar" />
 
-          {/* Center Links */}
-          <Nav
-            variant="underline"
-            className="mx-auto navbar-links"
-            defaultActiveKey="/"
-          >
-            <Nav.Item>
-              <Nav.Link as={Link} to="/">
-                Home
-              </Nav.Link>
-            </Nav.Item>
+    <BootstrapNavbar.Collapse id="main-navbar">
 
-            <Nav.Item>
-              <Nav.Link as={Link} to="/cities">
-                Cities
-              </Nav.Link>
-            </Nav.Item>
+      <Nav
+        variant="underline"
+        className="mx-auto navbar-links"
+        defaultActiveKey="/"
+      >
+        <Nav.Item>
+          <Nav.Link as={Link} to="/">
+            Home
+          </Nav.Link>
+        </Nav.Item>
 
-            <Nav.Item>
-              <Nav.Link as={Link} to="/experiences">
-                Experiences
-              </Nav.Link>
-            </Nav.Item>
+        <Nav.Item>
+          <Nav.Link as={Link} to="/cities">
+            Cities
+          </Nav.Link>
+        </Nav.Item>
 
-            <Nav.Item>
-              <Nav.Link as={Link} to="/blogs">
-                Blog
-              </Nav.Link>
-            </Nav.Item>
+        <Nav.Item>
+          <Nav.Link as={Link} to="/experiences">
+            Experiences
+          </Nav.Link>
+        </Nav.Item>
 
-            <Nav.Item>
-              <Nav.Link as={Link} to="/login">
-                Login
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
+        <Nav.Item>
+          <Nav.Link as={Link} to="/blogs">
+            Blog
+          </Nav.Link>
+        </Nav.Item>
 
-          {/* Right Icons */}
-          <Nav className="navbar-icons">
-
-            <Nav.Link
-              as={Link}
-              to="/liked-experiences"
-              title="Liked Experiences"
-            >
-              <FaHeart />
+        {!user && (
+          <Nav.Item>
+            <Nav.Link as={Link} to="/login">
+              Login
             </Nav.Link>
+          </Nav.Item>
+        )}
+      </Nav>
 
-            <NavDropdown
-              title={<FaUserCircle />}
-              id="profile-dropdown"
-              align="end"
-              className="profile-dropdown"
+      <Nav className="navbar-icons">
+
+        {user?.role === "User" && (
+          <Nav.Link
+            as={Link}
+            to="/liked-experiences"
+            title="Liked Experiences"
+          >
+            <FaHeart />
+          </Nav.Link>
+        )}
+
+        {user && (
+          <NavDropdown
+            title={<FaUserCircle />}
+            id="profile-dropdown"
+            align="end"
+            className="profile-dropdown"
+          >
+            {user.role === "Admin" && (
+              <NavDropdown.Item
+                as={Link}
+                to="/admin/dashboard"
+              >
+                Admin Dashboard
+              </NavDropdown.Item>
+            )}
+
+            {user.role === "Provider" && (
+              <NavDropdown.Item
+                as={Link}
+                to="/provider/dashboard"
+              >
+                Provider Dashboard
+              </NavDropdown.Item>
+            )}
+
+            <NavDropdown.Item
+              as={Link}
+              to="/profile"
             >
-              <NavDropdown.Item
-                as={Link}
-                to="/profile"
-              >
-                Profile
-              </NavDropdown.Item>
+              Profile
+            </NavDropdown.Item>
 
-              <NavDropdown.Divider />
+            <NavDropdown.Divider />
 
-              <NavDropdown.Item
-                as={Link}
-                to="/"
-              >
-                Logout
-              </NavDropdown.Item>
-            </NavDropdown>
+            <NavDropdown.Item
+              onClick={logout}
+            >
+              Logout
+            </NavDropdown.Item>
+          </NavDropdown>
+        )}
 
-          </Nav>
+      </Nav>
 
-        </BootstrapNavbar.Collapse>
+    </BootstrapNavbar.Collapse>
 
-      </Container>
-    </BootstrapNavbar>
-  );
+  </Container>
+</BootstrapNavbar>
+
+
+);
 }
 
 export default Navbar;
