@@ -1,4 +1,5 @@
 import { BrowserRouter, useLocation } from "react-router-dom";
+
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import AppRoutes from "./routes/AppRoutes";
@@ -6,15 +7,15 @@ import AppRoutes from "./routes/AppRoutes";
 function AppContent() {
   const location = useLocation();
 
-  const isAdminPage = location.pathname.startsWith("/admin");
+  const isDashboardPage =
+    location.pathname.startsWith("/admin") ||
+    location.pathname.startsWith("/provider");
 
   return (
     <>
-      {!isAdminPage && <Navbar />}
-
+      {!isDashboardPage && <Navbar />}
       <AppRoutes />
-
-      {!isAdminPage && <Footer />}
+      {!isDashboardPage && <Footer />}
     </>
   );
 }

@@ -1,0 +1,155 @@
+.admin-page h1 {
+  margin-bottom: 25px;
+}
+
+.admin-table-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.admin-table th {
+  font-weight: 700;
+  color: #222;
+}
+
+.small-text {
+  font-size: 12px;
+  color: #777;
+}
+
+.empty-cell {
+  text-align: center;
+  color: #777;
+  padding: 30px;
+}
+
+.status.pending {
+  background: #fff1d6;
+  color: #d98a00;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.approve-btn,
+.reject-btn {
+  padding: 7px 12px;
+  border-radius: 7px;
+  border: none;
+  margin-right: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.approve-btn {
+  background: #e4f8e7;
+  color: #238636;
+}
+
+.reject-btn {
+  background: #ffe5e5;
+  color: #d1242f;
+}
+
+.experience-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.table-img {
+  width: 70px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.content-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.content-tabs button {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: #eee;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.content-tabs button.active {
+  background: #8b1c1c;
+  color: white;
+}
+
+.content-form {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  display: grid;
+  gap: 12px;
+}
+
+.content-form input,
+.content-form textarea,
+.content-form select {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.content-form textarea {
+  min-height: 90px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+.status.approved {
+  background: #e4f8e7;
+  color: #238636;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.status.rejected {
+  background: #ffe5e5;
+  color: #d1242f;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.status.approved {
+  background: #e4f8e7;
+  color: #238636;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.status.rejected {
+  background: #ffe5e5;
+  color: #d1242f;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}

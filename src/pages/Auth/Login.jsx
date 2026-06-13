@@ -29,7 +29,7 @@ function Login() {
       if (res.data.user.role === "Admin") {
         navigate("/admin");
       } else if (res.data.user.role === "Provider") {
-        navigate("/provider/dashboard");
+        navigate("/provider");
       } else {
         navigate("/");
       }

@@ -1,0 +1,11 @@
+.provider-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f3ea;
+}
+
+.provider-main {
+  flex: 1;
+  padding: 40px;
+  overflow-x: auto;
+}
