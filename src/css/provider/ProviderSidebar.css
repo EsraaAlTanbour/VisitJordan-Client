@@ -1,14 +1,11 @@
 .provider-sidebar {
   width: 260px;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #8b1c1c;
   color: white;
   padding: 25px 18px;
   display: flex;
   flex-direction: column;
-  position: sticky;
-  top: 0;
-  overflow-y: auto;
 }
 
 .provider-logo {
@@ -50,7 +47,6 @@
 .profile-btn {
   margin-top: auto;
 }
-
 
 .logout-btn {
   margin-top: 10px;

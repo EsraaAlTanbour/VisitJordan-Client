@@ -10,12 +10,12 @@ import Signup from "../pages/Auth/Signup";
 
 import Profile from "../pages/Profile";
 import LikedExperiences from "../pages/LikedExperiences";
+import ExperienceDetails from "../pages/ExperienceDetails";
 
-import ProviderDashboard from "../pages/Provider/Dashboard";
-import ExperiencesTable from "../pages/Provider/ExperiencesTable";
 
 
 import AdminLayout from "../components/admin/AdminLayout";
+import ProviderLayout from "../components/provider/ProviderLayout";
 const AppRoutes = () => {
   return (
     <Routes>
@@ -23,16 +23,16 @@ const AppRoutes = () => {
       <Route path="/cities" element={<Cities />} />
       <Route path="/experiences" element={<Experiences />} />
       <Route path="/blogs" element={<Blogs />} />
-
+      <Route path="/experiences/:id" element={<ExperienceDetails />} />
+      
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
 
       <Route path="/profile" element={<Profile />} />
       <Route path="/liked-experiences" element={<LikedExperiences />} />
-
-      <Route path="/provider/dashboard" element={<ProviderDashboard />} />
-      <Route path="/provider/experiences-table" element={<ExperiencesTable />} />
-
+      <Route path="/experiences/:id" element={<ExperienceDetails />} />
+      
+      <Route path="/provider/*" element={<ProviderLayout />} />
       <Route path="/admin" element={<AdminLayout />} />
     </Routes>
   );
