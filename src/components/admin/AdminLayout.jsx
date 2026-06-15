@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Sidebar from "./sidebar";
+import Sidebar from "./Sidebar";
 import AdminDashboard from "./AdminDashboard";
 import ProvidersRequests from "./ProvidersRequests";
 import ExperiencesRequests from "./ExperiencesRequests";
@@ -16,13 +16,12 @@ const AdminLayout = () => {
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
       <main className="admin-main">
-  {activeTab === "dashboard" && <AdminDashboard />}
-  {activeTab === "providers" && <ProvidersRequests />}
-  {activeTab === "experiences" && <ExperiencesRequests />}
-  {activeTab === "content" && <ContentManagement />}
-  {activeTab === "profile" && <AdminProfile />}
-  
-</main>
+        {activeTab === "dashboard" && <AdminDashboard />}
+        {activeTab === "providers" && <ProvidersRequests />}
+        {activeTab === "experiences" && <ExperiencesRequests />}
+        {activeTab === "content" && <ContentManagement />}
+        {activeTab === "profile" && <AdminProfile />}
+      </main>
     </div>
   );
 };

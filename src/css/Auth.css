@@ -1,42 +1,119 @@
 .auth-page {
-  min-height: 90vh;
-  background-color: #fffaf1;
+  min-height: calc(100vh - 90px);
+  background:
+    linear-gradient(rgba(255, 250, 241, 0.9), rgba(255, 250, 241, 0.9)),
+    url("https://images.unsplash.com/photo-1548013146-72479768bada");
+  background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 60px;
+  padding: 50px 20px;
+  box-sizing: border-box;
 }
 
 .auth-card {
-  width: 370px;
-  background-color: #fffaf1;
-  padding: 35px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+  width: 420px;
+  background: rgba(255, 250, 241, 0.96);
+  padding: 42px 38px;
+  border-radius: 30px;
   text-align: center;
-   border-radius: 24px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(139, 28, 28, 0.15);
 }
 
 .signup-card {
-  width: 520px;
+  width: 580px;
+}
+
+.auth-logo {
+  width: 90px;
+  margin-bottom: 14px;
 }
 
 .auth-card h2 {
-  margin-bottom: 25px;
-  font-weight: bold;
+  margin-bottom: 28px;
+  font-size: 36px;
+  color: #222;
+  font-weight: 800;
+}
+
+.auth-card .form-control {
+  height: 52px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  padding: 12px 16px;
+  box-shadow: none;
+}
+
+.auth-card .form-control:focus {
+  border-color: #8b1c1c;
+  box-shadow: 0 0 0 4px rgba(139, 28, 28, 0.12);
 }
 
 .auth-btn {
   width: 100%;
-  background-color: #7f1d1d !important;
+  height: 54px;
+  background-color: #8b1c1c !important;
   border: none !important;
-  border-radius: 10px;
-  font-weight: bold;
+  border-radius: 14px !important;
+  font-size: 17px;
+  font-weight: 700;
+  margin-top: 8px;
 }
 
 .auth-btn:hover {
-  background-color: #7f1d1d !important;
+  background-color: #6f1515 !important;
 }
-.auth-logo {
-  width: 90px;
-  margin-bottom: 15px;
+
+.auth-switch {
+  margin-top: 14px;
+  font-size: 16px;
+  color: #222;
+}
+
+.auth-switch a {
+  color: #8b1c1c;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 5px 0 18px;
+}
+
+.form-check-input {
+  width: 18px;
+  height: 18px;
+  margin: 0 !important;
+}
+
+.form-check-input:checked {
+  background-color: #8b1c1c;
+  border-color: #8b1c1c;
+}
+
+.form-check-label {
+  font-size: 15px;
+  color: #222;
+}
+
+@media (max-width: 650px) {
+  .auth-card,
+  .signup-card {
+    width: 100%;
+    padding: 34px 24px;
+  }
+
+  .auth-card h2 {
+    font-size: 30px;
+  }
 }

@@ -1,16 +1,11 @@
 .experiences-page {
-  padding: 50px;
-  background-color: #f8f3ea;
+  background-color: #fffaf1;
   min-height: 100vh;
-}
-
-.experiences-page h1 {
-  text-align: center;
-  margin-bottom: 35px;
-  color: #7f1d1d;
+  padding: 0;
 }
 
 .experiences-grid {
+  padding: 60px 70px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 25px;

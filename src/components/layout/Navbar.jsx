@@ -20,12 +20,13 @@ function Navbar() {
       <Container fluid className="navbar-container">
 
         <BootstrapNavbar.Brand
-          as={Link}
-          to="/"
-          className="navbar-logo"
-        >
-          <img src={logo} alt="Visit Jordan Logo" />
-        </BootstrapNavbar.Brand>
+  as={Link}
+  to="/"
+  className="navbar-logo"
+>
+  <img src={logo} alt="Visit Jordan Logo" />
+  <span className="navbar-title">Visit Jordan</span>
+</BootstrapNavbar.Brand>
 
         <BootstrapNavbar.Toggle aria-controls="main-navbar" />
 
@@ -84,8 +85,13 @@ function Navbar() {
                 </Nav.Item>
 
                 <Nav.Item>
+                  <Nav.Link as={Link}  to="/destinations">Destinations
+                  </Nav.Link>
+                </Nav.Item>
+
+                <Nav.Item>
                   <Nav.Link as={Link} to="/blogs">
-                    Blog
+                    Blogs
                   </Nav.Link>
                 </Nav.Item>
 
