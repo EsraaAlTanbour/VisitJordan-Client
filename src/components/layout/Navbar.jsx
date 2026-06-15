@@ -20,13 +20,13 @@ function Navbar() {
       <Container fluid className="navbar-container">
 
         <BootstrapNavbar.Brand
-  as={Link}
-  to="/"
-  className="navbar-logo"
->
-  <img src={logo} alt="Visit Jordan Logo" />
-  <span className="navbar-title">Visit Jordan</span>
-</BootstrapNavbar.Brand>
+          as={Link}
+          to="/"
+          className="navbar-logo"
+        >
+          <img src={logo} alt="Visit Jordan Logo" />
+          <span className="navbar-title">Visit Jordan</span>
+        </BootstrapNavbar.Brand>
 
         <BootstrapNavbar.Toggle aria-controls="main-navbar" />
 
@@ -37,7 +37,6 @@ function Navbar() {
             className="mx-auto navbar-links"
             defaultActiveKey="/"
           >
-
             {user?.role === "Admin" ? (
               <>
                 <Nav.Item>
@@ -85,7 +84,8 @@ function Navbar() {
                 </Nav.Item>
 
                 <Nav.Item>
-                  <Nav.Link as={Link}  to="/destinations">Destinations
+                  <Nav.Link as={Link} to="/destinations">
+                    Destinations
                   </Nav.Link>
                 </Nav.Item>
 
@@ -104,7 +104,6 @@ function Navbar() {
                 )}
               </>
             )}
-
           </Nav>
 
           <Nav className="navbar-icons">
@@ -126,7 +125,6 @@ function Navbar() {
                 align="end"
                 className="profile-dropdown"
               >
-
                 {user.role === "Admin" && (
                   <NavDropdown.Item
                     as={Link}
@@ -139,7 +137,7 @@ function Navbar() {
                 {user.role === "Provider" && (
                   <NavDropdown.Item
                     as={Link}
-                    to="/provider/dashboard"
+                    to="/provider"
                   >
                     Provider Dashboard
                   </NavDropdown.Item>
@@ -152,13 +150,27 @@ function Navbar() {
                   Profile
                 </NavDropdown.Item>
 
+                {user.role === "User" && (
+                  <NavDropdown.Item
+                    as={Link}
+                    to="/my-bookings"
+                  >
+                    My Bookings
+                  </NavDropdown.Item>
+                )}
+
                 <NavDropdown.Divider />
 
-                <NavDropdown.Item
-                  onClick={logout}
-                >
-                  Logout
-                </NavDropdown.Item>
+
+<NavDropdown.Item
+  onClick={() => {
+    logout();
+    window.location.href = "/login";
+  }}
+>
+  Logout
+</NavDropdown.Item>
+               
 
               </NavDropdown>
             )}

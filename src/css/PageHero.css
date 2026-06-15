@@ -1,7 +1,7 @@
 .page-hero {
   height: 360px;
   background-size: cover;
-  background-position: center;
+  background-position: center 40%;
   position: relative;
 }
 

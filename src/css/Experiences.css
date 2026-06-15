@@ -55,3 +55,32 @@
   align-items: center;
   margin-top: 15px;
 }
+.empty-likes {
+  width: 100%;
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 50px 30px;
+  background: white;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.empty-heart {
+  font-size: 70px;
+  color: #d8d0c8;
+  margin-bottom: 20px;
+}
+
+.empty-likes h3 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: 700;
+}
+
+.empty-likes p {
+  color: #777;
+  font-size: 17px;
+  line-height: 1.8;
+}

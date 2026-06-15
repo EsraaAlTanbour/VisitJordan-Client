@@ -19,7 +19,7 @@ const Blogs = () => {
       <PageHero
   title="Travel Stories & Local Guides"
   subtitle="Discover Jordan through local traditions, food, shopping, culture, and travel tips."
-  image="https://images.unsplash.com/photo-1548013146-72479768bada"
+  image="https://i.pinimg.com/736x/8c/d3/84/8cd3847b7213dc93e7059efde58c91f8.jpg"
 />
 
       <div className="blogs-grid">

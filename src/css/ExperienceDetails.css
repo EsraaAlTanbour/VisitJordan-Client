@@ -80,3 +80,37 @@
   padding: 12px;
   border-radius: 8px;
 }
+
+.booking-card label {
+  display: block;
+  margin: 18px 0 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.booking-card input {
+  width: 100%;
+  height: 46px;
+  padding: 0 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.booking-card input:focus {
+  outline: none;
+  border-color: #9b1c1c;
+}
+
+.booking-card h3 {
+  margin: 22px 0;
+  font-size: 24px;
+  color: #222;
+}
+
+.booking-card .book-btn,
+.booking-card .wishlist-btn {
+  width: 100%;
+  margin-top: 14px;
+}

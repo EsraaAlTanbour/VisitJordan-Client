@@ -7,4 +7,15 @@
 .admin-main {
   flex: 1;
   padding: 30px;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  .admin-main {
+    padding: 18px;
+  }
 }

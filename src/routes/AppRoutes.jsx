@@ -12,7 +12,7 @@ import Profile from "../pages/Profile";
 import LikedExperiences from "../pages/LikedExperiences";
 import ExperienceDetails from "../pages/ExperienceDetails";
 import Destinations from "../pages/Destinations";
-
+import MyBookings from "../pages/MyBookings";
 
 import AdminLayout from "../components/admin/AdminLayout";
 import ProviderLayout from "../components/provider/ProviderLayout";
@@ -25,12 +25,14 @@ const AppRoutes = () => {
       <Route path="/blogs" element={<Blogs />} />
       <Route path="/experiences/:id" element={<ExperienceDetails />} />
       <Route path="/destinations" element={<Destinations />} />
+      <Route path="/my-bookings" element={<MyBookings />} />
+      
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
 
       <Route path="/profile" element={<Profile />} />
       <Route path="/liked-experiences" element={<LikedExperiences />} />
-      <Route path="/experiences/:id" element={<ExperienceDetails />} />
+      
       
       <Route path="/provider/*" element={<ProviderLayout />} />
       <Route path="/admin" element={<AdminLayout />} />

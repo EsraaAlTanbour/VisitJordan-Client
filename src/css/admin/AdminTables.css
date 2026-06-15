@@ -1,5 +1,6 @@
 .admin-page h1 {
   margin-bottom: 25px;
+  font-size: 36px;
 }
 
 .admin-table-card {
@@ -11,6 +12,7 @@
 
 .admin-table {
   width: 100%;
+  min-width: 850px;
   border-collapse: collapse;
 }
 
@@ -78,10 +80,12 @@
   object-fit: cover;
   border-radius: 8px;
 }
+
 .content-tabs {
   display: flex;
   gap: 12px;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .content-tabs button {
@@ -110,6 +114,8 @@
 .content-form input,
 .content-form textarea,
 .content-form select {
+  width: 100%;
+  box-sizing: border-box;
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -122,4 +128,29 @@
 .form-actions {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .admin-page h1 {
+    font-size: 28px;
+  }
+
+  .admin-table-card {
+    padding: 14px;
+  }
+
+  .content-tabs {
+    flex-direction: column;
+  }
+
+  .content-tabs button,
+  .form-actions button {
+    width: 100%;
+  }
+
+  .approve-btn,
+  .reject-btn {
+    margin-right: 0;
+  }
 }

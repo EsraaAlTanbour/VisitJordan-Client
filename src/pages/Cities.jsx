@@ -23,7 +23,7 @@ const Cities = () => {
      <PageHero
   title="Explore Jordan Cities"
   subtitle="Discover Jordan through its historic cities, local culture, markets, and unforgettable views."
-  image="https://images.unsplash.com/photo-1564501049412-61c2a3083791"
+  image="https://i.pinimg.com/736x/c1/95/e0/c195e0f43acd01faef16d0bfbe3eb9e0.jpg"
 />
       <div className="cities-scroll">
         {cities.map((city, index) => (

@@ -10,6 +10,8 @@ const ExperienceDetails = () => {
   const { user } = useAuth();
 
   const [experience, setExperience] = useState(null);
+  const [bookingDate, setBookingDate] = useState("");
+  const [peopleCount, setPeopleCount] = useState(1);
 
   useEffect(() => {
     const fetchExperience = async () => {
@@ -23,6 +25,41 @@ const ExperienceDetails = () => {
 
     fetchExperience();
   }, [id]);
+
+  const handleBooking = async () => {
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+
+    if (user.role !== "User") {
+      alert("Only users can book experiences");
+      return;
+    }
+
+    if (!bookingDate) {
+      alert("Please choose a booking date");
+      return;
+    }
+
+    if (peopleCount < 1) {
+      alert("People count must be at least 1");
+      return;
+    }
+
+    try {
+      await api.post("/bookings", {
+        experience_id: Number(id),
+        booking_date: bookingDate,
+        people_count: Number(peopleCount),
+      });
+
+      alert("Booking created successfully");
+      navigate("/my-bookings");
+    } catch (error) {
+      alert(error.response?.data?.message || "Failed to create booking");
+    }
+  };
 
   const handleAddToWishlist = async () => {
     if (!user) {
@@ -48,8 +85,10 @@ const ExperienceDetails = () => {
   };
 
   if (!experience) {
-    return <h2>Loading...</h2>;
+    return <h2 className="details-loading">Loading...</h2>;
   }
+
+  const totalPrice = Number(experience.price) * Number(peopleCount);
 
   return (
     <div className="experience-details-page">
@@ -73,17 +112,47 @@ const ExperienceDetails = () => {
             <div className="experience-meta">
               <p><strong>Duration:</strong> {experience.duration}</p>
               <p><strong>Category:</strong> {experience.category}</p>
-              <p><strong>Group Size:</strong> {experience.max_people}</p>
+              <p><strong>Capacity:</strong> {experience.capacity}</p>
+              <p><strong>Start Date:</strong> {experience.start_date?.slice(0, 10)}</p>
+              <p><strong>End Date:</strong> {experience.end_date?.slice(0, 10)}</p>
               <p><strong>Location:</strong> {experience.location}</p>
             </div>
           </div>
         </div>
 
         <div className="booking-card">
-          <h2>JOD {experience.price}</h2>
-          <p>per person</p>
+          <div className="booking-price">
+            <h2>JOD {experience.price}</h2>
+            <p>per person</p>
+          </div>
 
-          <button className="book-btn">
+          <div className="booking-field">
+            <label>Booking Date</label>
+            <input
+              type="date"
+              value={bookingDate}
+              min={experience.start_date?.slice(0, 10)}
+              max={experience.end_date?.slice(0, 10)}
+              onChange={(e) => setBookingDate(e.target.value)}
+            />
+          </div>
+
+          <div className="booking-field">
+            <label>Number of People</label>
+            <input
+              type="number"
+              min="1"
+              max={experience.capacity}
+              value={peopleCount}
+              onChange={(e) => setPeopleCount(e.target.value)}
+            />
+          </div>
+
+          <div className="booking-total">
+            Total: <span>JOD {totalPrice}</span>
+          </div>
+
+          <button className="book-btn" onClick={handleBooking}>
             Book Now
           </button>
 

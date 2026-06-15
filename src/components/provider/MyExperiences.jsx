@@ -1,23 +1,30 @@
 import React, { useEffect, useState } from "react";
 import api from "../../api/api";
-import { useAuth } from "../../context/AuthContext";
 import "../../css/provider/ProviderTables.css";
 
-const MyExperiences = () => {
-  const { user } = useAuth();
+const MyExperiences = ({ setActiveTab, setEditingExperienceId }) => {
   const [experiences, setExperiences] = useState([]);
 
   const fetchMyExperiences = async () => {
     try {
-      const res = await api.get("/experiences");
-
-      const myExperiences = res.data.filter(
-        (exp) => exp.provider_id === user.id
-      );
-
-      setExperiences(myExperiences);
+      const res = await api.get("/experiences/provider/my-experiences");
+      setExperiences(res.data);
     } catch (error) {
       alert("Failed to load your experiences");
+    }
+  };
+
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this experience?")) {
+      return;
+    }
+
+    try {
+      await api.delete(`/experiences/${id}`);
+      setExperiences((prev) => prev.filter((exp) => exp.id !== id));
+      alert("Experience deleted successfully");
+    } catch (error) {
+      alert(error.response?.data?.message || "Failed to delete experience");
     }
   };
 
@@ -36,17 +43,20 @@ const MyExperiences = () => {
               <th>Image</th>
               <th>Title</th>
               <th>City</th>
-              <th>Category</th>
+              <th>Capacity</th>
+              <th>Booked</th>
+              <th>Start</th>
+              <th>End</th>
               <th>Price</th>
               <th>Status</th>
-              <th>Date Created</th>
+              <th>Actions</th>
             </tr>
           </thead>
 
           <tbody>
             {experiences.length === 0 ? (
               <tr>
-                <td colSpan="7" className="empty-cell">
+                <td colSpan="10" className="empty-cell">
                   No experiences yet
                 </td>
               </tr>
@@ -67,7 +77,10 @@ const MyExperiences = () => {
 
                   <td>{exp.title}</td>
                   <td>{exp.city_name || "-"}</td>
-                  <td>{exp.category || "-"}</td>
+                  <td>{exp.capacity || 0}</td>
+                  <td>{exp.booked_count || 0}</td>
+                  <td>{exp.start_date?.slice(0, 10) || "-"}</td>
+                  <td>{exp.end_date?.slice(0, 10) || "-"}</td>
                   <td>{exp.price} JOD</td>
 
                   <td>
@@ -77,9 +90,28 @@ const MyExperiences = () => {
                   </td>
 
                   <td>
-                    {exp.created_at
-                      ? new Date(exp.created_at).toLocaleDateString()
-                      : "-"}
+                    {exp.status === "Pending" ? (
+                      <>
+                        <button
+  className="edit-btn"
+  onClick={() => {
+    setEditingExperienceId(exp.id);
+    setActiveTab("edit");
+  }}
+>
+  Edit
+</button>
+
+                        <button
+                          className="delete-btn"
+                          onClick={() => handleDelete(exp.id)}
+                        >
+                          Delete
+                        </button>
+                      </>
+                    ) : (
+                      <span>Locked</span>
+                    )}
                   </td>
                 </tr>
               ))
