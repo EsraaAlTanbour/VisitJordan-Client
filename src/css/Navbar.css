@@ -87,6 +87,25 @@
 .navbar-icons .nav-link {
   color: white !important;
 }
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.navbar-logo img {
+  width: 60px;
+  height: auto;
+}
+
+.navbar-title {
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  
+  letter-spacing: 0.5px;
+}
 @media (max-width: 991px) {
   .navbar-links {
     align-items: center;

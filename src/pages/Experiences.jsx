@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../api/api";
 import "../css/Experiences.css";
-
+import PageHero from "../components/home/PageHero";
 const Experiences = () => {
   const [experiences, setExperiences] = useState([]);
 
@@ -27,7 +27,11 @@ const Experiences = () => {
 
   return (
     <div className="experiences-page">
-      <h1>Experiences</h1>
+      <PageHero
+  title="Experiences"
+  subtitle="Book unique tours, food experiences, adventures, and cultural activities."
+  image="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5"
+/>
 
       <div className="experiences-grid">
         {experiences.length === 0 ? (

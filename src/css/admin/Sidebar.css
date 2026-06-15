@@ -1,36 +1,45 @@
-.provider-sidebar {
-  width: 260px;
-  height: 100vh;
+.admin-sidebar {
+  width: 270px;
+  min-width: 270px;
+  min-height: 100vh;
   background-color: #8b1c1c;
   color: white;
   padding: 25px 18px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  position: sticky;
-  top: 0;
-  overflow-y: auto;
 }
 
-.provider-logo {
+.admin-logo {
   text-align: center;
   margin-bottom: 35px;
 }
 
-.provider-logo img {
-  width: 80px;
-  margin-bottom: 10px;
+.admin-logo img {
+  width: 150px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
 }
 
-.provider-logo h3 {
+.admin-logo h2 {
   color: white;
   margin: 0;
   font-size: 28px;
+  font-weight: 700;
 }
 
-.provider-sidebar button {
+.admin-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.admin-nav button {
   width: 100%;
-  padding: 14px 18px;
-  margin-bottom: 15px;
+  padding: 14px 16px;
   border: none;
   border-radius: 12px;
   background: transparent;
@@ -39,10 +48,11 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
-.provider-sidebar button:hover,
-.provider-sidebar button.active {
+.admin-nav button:hover,
+.admin-nav button.active {
   background-color: #f5efe4;
   color: #8b1c1c;
 }
@@ -51,9 +61,71 @@
   margin-top: auto;
 }
 
+.logout-btn {
+  background-color: #5c1010 !important;
+  color: white !important;
+  margin-top: 10px;
+  text-align: center !important;
+}.admin-sidebar {
+  width: 260px;
+  min-width: 260px;
+  min-height: 100vh;
+  background-color: #8b1c1c;
+  color: white;
+  padding: 25px 18px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.admin-logo {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.admin-logo img {
+  width: 140px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.admin-logo h3 {
+  color: white;
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.admin-sidebar button {
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: white;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.admin-sidebar button:hover,
+.admin-sidebar button.active {
+  background-color: #f5efe4;
+  color: #8b1c1c;
+}
+
+.profile-btn {
+  margin-top: auto;
+}
 
 .logout-btn {
   margin-top: 10px;
+  background-color: #5c1010 !important;
   color: #f5efe4 !important;
   font-weight: bold;
 }

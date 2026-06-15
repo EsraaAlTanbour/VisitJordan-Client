@@ -11,7 +11,7 @@ import Signup from "../pages/Auth/Signup";
 import Profile from "../pages/Profile";
 import LikedExperiences from "../pages/LikedExperiences";
 import ExperienceDetails from "../pages/ExperienceDetails";
-
+import Destinations from "../pages/Destinations";
 
 
 import AdminLayout from "../components/admin/AdminLayout";
@@ -24,7 +24,7 @@ const AppRoutes = () => {
       <Route path="/experiences" element={<Experiences />} />
       <Route path="/blogs" element={<Blogs />} />
       <Route path="/experiences/:id" element={<ExperienceDetails />} />
-      
+      <Route path="/destinations" element={<Destinations />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
 
