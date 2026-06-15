@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../api/api";
 import { useAuth } from "../context/AuthContext";
+import { FaRegHeart } from "react-icons/fa";
 import "../css/Experiences.css";
 
 const LikedExperiences = () => {
@@ -39,11 +40,23 @@ const LikedExperiences = () => {
 
   return (
     <div className="experiences-page">
-      <h1>Liked Experiences</h1>
+      
+      <section><h1>Liked Experiences</h1></section>
+      
 
       <div className="experiences-grid">
         {likes.length === 0 ? (
-          <p>No liked experiences yet.</p>
+          <div className="empty-likes">
+  <FaRegHeart className="empty-heart" />
+
+  <h3>No liked experiences yet.</h3>
+
+  <p>
+    Start exploring and like experiences
+    <br />
+    you love!
+  </p>
+</div>
         ) : (
           likes.map((like) => (
             <div className="experience-card" key={like.id}>

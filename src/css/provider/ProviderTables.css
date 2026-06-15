@@ -11,6 +11,7 @@
 
 .admin-table {
   width: 100%;
+  min-width: 850px;
   border-collapse: collapse;
 }
 
@@ -82,6 +83,7 @@
   display: flex;
   gap: 12px;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .content-tabs button {
@@ -122,6 +124,7 @@
 .form-actions {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 .status.approved {
   background: #e4f8e7;
@@ -152,4 +155,70 @@
   padding: 6px 10px;
   border-radius: 8px;
   font-weight: 600;
+}
+.edit-btn,
+.delete-btn,
+.cancel-btn,
+.approve-btn {
+  padding: 9px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 4px;
+  transition: 0.3s;
+}
+
+.edit-btn {
+  background-color: #2563eb;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.delete-btn {
+  background-color: #991b1b;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #7f1d1d;
+}
+
+.cancel-btn {
+  background-color: #6b7280;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #4b5563;
+}
+
+.approve-btn {
+  background-color: #8b1c1c;
+  color: white;
+}
+
+.approve-btn:hover {
+  background-color: #6f1515;
+}
+@media (max-width: 768px) {
+  .content-tabs button,
+  .approve-btn,
+  .edit-btn,
+  .delete-btn,
+  .cancel-btn {
+    width: 100%;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+}
+.table-img {
+  max-width: 100%;
+  height: auto;
 }

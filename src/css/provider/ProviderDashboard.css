@@ -29,7 +29,7 @@
   margin-top: 30px;
   border-radius: 14px;
   padding: 25px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
 }
 
 .dashboard-table-card h2 {
@@ -39,6 +39,7 @@
 
 .dashboard-table {
   width: 100%;
+  min-width: 700px;
   border-collapse: collapse;
 }
 
@@ -56,4 +57,17 @@
 
 .dashboard-table tr:hover {
   background-color: #f8f8f8;
+}
+@media (max-width: 768px) {
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card {
+    padding: 20px;
+  }
+
+  .dashboard-card p {
+    font-size: 28px;
+  }
 }

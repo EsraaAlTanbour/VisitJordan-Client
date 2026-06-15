@@ -1,15 +1,24 @@
+
+body,
+html,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
 .auth-page {
-  min-height: calc(100vh - 90px);
+  min-height: 100vh;
   background:
     linear-gradient(rgba(255, 250, 241, 0.9), rgba(255, 250, 241, 0.9)),
-    url("https://images.unsplash.com/photo-1548013146-72479768bada");
+    url("https://i.pinimg.com/736x/28/61/6c/28616c5aa4a9cd8945522fea0b89df80.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px 20px;
-  box-sizing: border-box;
+    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .auth-card {
@@ -20,6 +29,7 @@
   text-align: center;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
   border: 1px solid rgba(139, 28, 28, 0.15);
+  margin: 60px;
 }
 
 .signup-card {

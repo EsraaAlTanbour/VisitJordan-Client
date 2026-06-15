@@ -23,7 +23,7 @@ const Destinations = () => {
       <PageHero
   title="Explore Destinations"
   subtitle="Find beautiful places, hidden gems, and local spots across Jordan."
-  image="https://images.unsplash.com/photo-1548013146-72479768bada"
+  image="https://i.pinimg.com/736x/7a/2c/26/7a2c26bf80ea2b4fbebee27fd93f4eaa.jpg"
 />
 
       <div className="destinations-grid">

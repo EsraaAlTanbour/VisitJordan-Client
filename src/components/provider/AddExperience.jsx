@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import api from "../../api/api";
-import { useAuth } from "../../context/AuthContext";
 import "../../css/provider/ProviderTables.css";
 
-
 const AddExperience = () => {
-  const { user } = useAuth();
   const [cities, setCities] = useState([]);
 
   const [formData, setFormData] = useState({
@@ -15,7 +12,9 @@ const AddExperience = () => {
     city_id: "",
     location: "",
     duration: "",
-    max_people: "",
+    capacity: "",
+    start_date: "",
+    end_date: "",
     price: "",
     image_url: "",
   });
@@ -43,17 +42,23 @@ const AddExperience = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (formData.end_date < formData.start_date) {
+      alert("End date cannot be before start date");
+      return;
+    }
+
     try {
       await api.post("/experiences", {
-        provider_id: user.id,
         city_id: formData.city_id,
         title: formData.title,
         description: formData.description,
         category: formData.category,
         location: formData.location,
         duration: formData.duration,
-        max_people: formData.max_people,
-        price: formData.price,
+        capacity: Number(formData.capacity),
+        start_date: formData.start_date,
+        end_date: formData.end_date,
+        price: Number(formData.price),
         image_url: formData.image_url,
       });
 
@@ -66,7 +71,9 @@ const AddExperience = () => {
         city_id: "",
         location: "",
         duration: "",
-        max_people: "",
+        capacity: "",
+        start_date: "",
+        end_date: "",
         price: "",
         image_url: "",
       });
@@ -139,10 +146,28 @@ const AddExperience = () => {
 
         <input
           type="number"
-          name="max_people"
-          placeholder="Max people"
-          value={formData.max_people}
+          name="capacity"
+          placeholder="Capacity / number of people"
+          value={formData.capacity}
           onChange={handleChange}
+          min="1"
+          required
+        />
+
+        <input
+          type="date"
+          name="start_date"
+          value={formData.start_date}
+          onChange={handleChange}
+          required
+        />
+
+        <input
+          type="date"
+          name="end_date"
+          value={formData.end_date}
+          onChange={handleChange}
+          required
         />
 
         <input
@@ -151,6 +176,7 @@ const AddExperience = () => {
           placeholder="Price"
           value={formData.price}
           onChange={handleChange}
+          min="1"
           required
         />
 

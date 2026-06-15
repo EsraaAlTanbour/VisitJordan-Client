@@ -61,3 +61,33 @@
   color: #f5efe4 !important;
   font-weight: bold;
 }
+@media (max-width: 768px) {
+  .provider-sidebar {
+    width: 100%;
+    min-width: 100%;
+    min-height: auto;
+    padding: 18px;
+  }
+
+  .provider-logo {
+    margin-bottom: 20px;
+  }
+
+  .provider-logo img {
+    width: 110px;
+  }
+
+  .provider-logo h3 {
+    font-size: 24px;
+  }
+
+  .provider-sidebar button {
+    text-align: center;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .profile-btn {
+    margin-top: 0;
+  }
+}

@@ -30,7 +30,7 @@ const Experiences = () => {
       <PageHero
   title="Experiences"
   subtitle="Book unique tours, food experiences, adventures, and cultural activities."
-  image="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5"
+  image="https://i.pinimg.com/736x/8b/52/aa/8b52aace093698ba44ba73664408a25e.jpg"
 />
 
       <div className="experiences-grid">
