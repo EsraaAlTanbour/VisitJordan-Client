@@ -4,7 +4,20 @@
   gap: 20px;
   margin-top: 30px;
 }
+.provider-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f8f2e8;
+}
 
+.provider-main {
+  flex: 1;
+  min-height: 100vh;
+  padding: 30px;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
 .dashboard-card {
   background: white;
   border-radius: 14px;
@@ -56,4 +69,20 @@
 
 .dashboard-table tr:hover {
   background-color: #f8f8f8;
+}
+@media (max-width: 768px) {
+  .provider-layout {
+    flex-direction: column;
+  }
+
+  .provider-main {
+    padding: 20px;
+    min-height: auto;
+  }
+
+  .provider-sidebar {
+    width: 100%;
+    min-width: 100%;
+    min-height: auto;
+  }
 }
